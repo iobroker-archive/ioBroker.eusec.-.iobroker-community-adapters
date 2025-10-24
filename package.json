@@ -6,19 +6,29 @@
     "name": "bropat",
     "email": "patrick.broetto@gmail.com"
   },
-  "homepage": "https://github.com/bropat/ioBroker.eusec",
+  "contributors": [
+    {
+      "name": "iobroker-community-adapters",
+      "email": "iobroker-community-adapters@gmx.de"
+    },
+    {
+      "name": "mcm1957",
+      "email": "mcm57@gmx.at"
+    }
+  ],
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.eusec",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "eufy",
     "eufycam",
     "cam",
     "cameras",
-    "security",
-    "ioBroker"
+    "security"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bropat/ioBroker.eusec"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.eusec"
   },
   "engines": {
     "node": ">=20.0.0"
@@ -93,7 +103,7 @@
     "release": "release-script"
   },
   "bugs": {
-    "url": "https://github.com/bropat/ioBroker.eusec/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.eusec/issues"
   },
   "readmeFilename": "README.md"
 }

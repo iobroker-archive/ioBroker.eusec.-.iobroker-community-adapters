@@ -96,7 +96,9 @@
             "zh-cn": "支持带站的Eufy-Security摄像机"
         },
         "authors": [
-            "bropat <patrick.broetto@gmail.com>"
+            "bropat <patrick.broetto@gmail.com>",
+            "iobroker-community-adapters <iobroker-community-adapters@gmx.de>",
+            "mcm1957 <mcm57@gmx.at>"
         ],
         "keywords": [
             "eufy",
@@ -114,8 +116,8 @@
         "platform": "Javascript/Node.js",
         "icon": "eusec.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/bropat/ioBroker.eusec/master/admin/eusec.png",
-        "readme": "https://github.com/bropat/ioBroker.eusec/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.eusec/master/admin/eusec.png",
+        "readme": "https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
         "type": "alarm",
