@@ -45,7 +45,21 @@ Please use GitHub issues for this.
 
 Best is to set the adapter to Debug log mode (see [here](https://bropat.github.io/ioBroker.eusec/#/debugging)). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines).
 
+## Credits
+
+This adapter would not have been possible without the great work of Patrick Broetto (brobat) <https://github.com/bropat>, who created previous releases of this adapter.
+
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+
+- (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.3.3 (2024-09-28)
 
