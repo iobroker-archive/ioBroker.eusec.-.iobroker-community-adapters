@@ -8,9 +8,8 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/eusec-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/eusec-stable.svg)
 [![Dependency Status](https://img.shields.io/librariesio/release/npm/iobroker.eusec)](https://libraries.io/npm/iobroker.eusec)
-[![Known Vulnerabilities](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)](https://snyk.io/test/github/bropat/ioBroker.eusec)
 
-**Tests:** ![Test and Release](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.eusec.png?downloads=true)](https://nodei.co/npm/iobroker.eusec/)
 
@@ -33,17 +32,11 @@ One Adapter instance will show all devices from one Eufy Cloud account and allow
 
 ## Documentation
 
-Checkout the documentation [here](https://bropat.github.io/ioBroker.eusec/).
+Checkout the documentation [here](https://iobroker-community-adapters.github.io/ioBroker.eusec/).
 
 ## Known working devices
 
 Information about supported devices can be found [here](https://github.com/bropat/eufy-security-client#known-working-devices).
-
-## How to report issues and feature requests
-
-Please use GitHub issues for this.
-
-Best is to set the adapter to Debug log mode (see [here](https://bropat.github.io/ioBroker.eusec/#/debugging)). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines).
 
 ## Credits
 
@@ -661,6 +654,7 @@ This adapter would not have been possible without the great work of Patrick Broe
 
 MIT License
 
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
