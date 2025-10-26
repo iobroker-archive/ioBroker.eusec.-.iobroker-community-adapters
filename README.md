@@ -43,6 +43,9 @@ This adapter would not have been possible without the great work of Patrick Broe
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) Remove fix for CVE-2023-46809 for node.js 22 and newer
+
 ### 2.0.0 (2025-10-26)
 
 - (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
