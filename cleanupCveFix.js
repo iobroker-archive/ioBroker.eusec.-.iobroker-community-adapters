@@ -74,8 +74,8 @@ function getEusecInstances() {
 
         log(`Found ${instances.length} eusec instance(s): ${instances.join(', ')}`);
         return instances;
-    } catch {
-        log('No eusec instances found or error occurred while listing instances');
+    } catch (error) {
+        log(`No eusec instances found or error occurred while listing instances: ${error.message}`);
         return [];
     }
 }
