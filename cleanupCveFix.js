@@ -57,7 +57,7 @@ function getEusecInstances() {
     log('Retrieving eusec adapter instances...');
 
     try {
-        const output = executeCommand('node ..\\iobroker.js-controller\\iobroker.js object list system.adapter.eusec.*');
+        const output = executeCommand('node ../iobroker.js-controller/iobroker.js object list system.adapter.eusec.*');
         const instances = [];
 
         // Parse the output to extract instance numbers
@@ -87,7 +87,7 @@ function getEusecInstances() {
  */
 function fixInstance(instanceNumber) {
     const objectId = `system.adapter.eusec.${instanceNumber}`;
-    const command = `node ..\\iobroker.js-controller\\iobroker.js object set ${objectId} common.nodeProcessParams=[]`;
+    const command = `node ../iobroker.js-controller/iobroker.js object set ${objectId} common.nodeProcessParams=[]`;
 
     log(`Fixing instance ${instanceNumber}...`);
     log(`Executing: ${command}`);
