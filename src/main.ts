@@ -6,7 +6,7 @@
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { strict } from "assert";
+import { notDeepEqual, strict } from "assert";
 import * as path from "path";
 import { Camera, Device, Station, PushMessage, P2PConnectionType, EufySecurity, EufySecurityConfig, CommandResult, CommandType, ErrorCode, PropertyValue, PropertyName, StreamMetadata, PropertyMetadataNumeric, PropertyMetadataAny, CommandName, PanTiltDirection, DeviceNotFoundError, LoginOptions, Picture, StationNotFoundError, ensureError, LogLevel, TFCardStatus } from "eufy-security-client";
 import { getAlpha2Code as getCountryCode } from "i18n-iso-countries"
@@ -205,18 +205,19 @@ export class euSec extends utils.Adapter {
 
             let fixNeeded;
             switch (parseInt(nodeMajorVersion)) {
-                case 18:
-                    fixNeeded = nodeVersion.localeCompare("18.19.1", undefined, { numeric: true, sensitivity: "base" });
-                    break;
+                // node 18 is no longer supported
                 case 20:
                     fixNeeded = nodeVersion.localeCompare("20.11.1", undefined, { numeric: true, sensitivity: "base" });
                     break;
+                // node 21 is and was not supported
+                // node 22 and newer do NOT require any fix
                 default:
-                    fixNeeded = nodeVersion.localeCompare("21.6.2", undefined, { numeric: true, sensitivity: "base" });
+                    fixNeeded = -1; // no fix
                     break;
             }
+            const adapter = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+            this.log.debug(`checing CVE-2023-46809 fix - nodeProcessParams is ${adapter?.common?.nodeProcessParams}`);
             if (fixNeeded >= 0) {
-                const adapter = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
                 if (adapter !== undefined && adapter !== null) {
                     if (!adapter.common.nodeProcessParams?.includes("--security-revert=CVE-2023-46809")) {
                         adapter.common.nodeProcessParams = ["--security-revert=CVE-2023-46809"]
@@ -224,6 +225,12 @@ export class euSec extends utils.Adapter {
                         this.log.warn("Required fix to use livestreaming with this version of Node.js (CVE-2023-46809) applied. Restart of the adapter initiated to activate the fix.");
                         this.restartAdapter();
                     }
+                }
+            } else {
+                if (adapter !== undefined && adapter !== null && adapter.common.nodeProcessParams?.includes("--security-revert=CVE-2023-46809")) {
+                    this.log.warn("Outdated fix to use livestreaming with this version of Node.js (CVE-2023-46809) detected - will be removed. Restart of the adapter initiated to activate the fix.");
+                    adapter.common.nodeProcessParams=adapter.common.nodeProcessParams.filter(param => param != "--security-revert=CVE-2023-46809");
+                    this.restartAdapter();
                 }
             }
         }

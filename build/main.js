@@ -76,7 +76,7 @@ class euSec extends utils.Adapter {
    * Is called when databases are connected and adapter received configuration.
    */
   async onReady() {
-    var _a;
+    var _a, _b, _c;
     this.logger = new import_log.ioBrokerLogger(this.log);
     await this.setObjectNotExistsAsync("verify_code", {
       type: "state",
@@ -210,25 +210,32 @@ class euSec extends utils.Adapter {
       const nodeMajorVersion = nodeVersion.split(".")[0];
       let fixNeeded;
       switch (parseInt(nodeMajorVersion)) {
-        case 18:
-          fixNeeded = nodeVersion.localeCompare("18.19.1", void 0, { numeric: true, sensitivity: "base" });
-          break;
+        // node 18 is no longer supported
         case 20:
           fixNeeded = nodeVersion.localeCompare("20.11.1", void 0, { numeric: true, sensitivity: "base" });
           break;
+        // node 21 is and was not supported
+        // node 22 and newer do NOT require any fix
         default:
-          fixNeeded = nodeVersion.localeCompare("21.6.2", void 0, { numeric: true, sensitivity: "base" });
+          fixNeeded = -1;
           break;
       }
+      const adapter = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+      this.log.debug(`checing CVE-2023-46809 fix - nodeProcessParams is ${(_a = adapter == null ? void 0 : adapter.common) == null ? void 0 : _a.nodeProcessParams}`);
       if (fixNeeded >= 0) {
-        const adapter = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
         if (adapter !== void 0 && adapter !== null) {
-          if (!((_a = adapter.common.nodeProcessParams) == null ? void 0 : _a.includes("--security-revert=CVE-2023-46809"))) {
+          if (!((_b = adapter.common.nodeProcessParams) == null ? void 0 : _b.includes("--security-revert=CVE-2023-46809"))) {
             adapter.common.nodeProcessParams = ["--security-revert=CVE-2023-46809"];
             await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, adapter);
             this.log.warn("Required fix to use livestreaming with this version of Node.js (CVE-2023-46809) applied. Restart of the adapter initiated to activate the fix.");
             this.restartAdapter();
           }
+        }
+      } else {
+        if (adapter !== void 0 && adapter !== null && ((_c = adapter.common.nodeProcessParams) == null ? void 0 : _c.includes("--security-revert=CVE-2023-46809"))) {
+          this.log.warn("Outdated fix to use livestreaming with this version of Node.js (CVE-2023-46809) detected - will be removed. Restart of the adapter initiated to activate the fix.");
+          adapter.common.nodeProcessParams = adapter.common.nodeProcessParams.filter((param) => param != "--security-revert=CVE-2023-46809");
+          this.restartAdapter();
         }
       }
     }
