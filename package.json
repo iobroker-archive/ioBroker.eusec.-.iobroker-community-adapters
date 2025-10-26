@@ -88,7 +88,8 @@
     "check": "tsc --noEmit",
     "lint": "eslint -c eslint.config.mjs .",
     "translate": "translate-adapter",
-    "release": "release-script"
+    "release": "release-script",
+    "postinstall": "node ./cleanupCveFix.js"
   },
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.eusec/issues"
