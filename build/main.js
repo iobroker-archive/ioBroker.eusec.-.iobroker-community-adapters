@@ -317,6 +317,7 @@ class euSec extends utils.Adapter {
               "listen": `:${this.config.go2rtc_webrtc_port}`
             },
             "ffmpeg": {
+              // @ts-expect-error old code
               "bin": import_ffmpeg_for_homebridge.default !== "" && import_ffmpeg_for_homebridge.default !== void 0 ? import_ffmpeg_for_homebridge.default : "ffmpeg"
             },
             "streams": {}
