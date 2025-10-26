@@ -152,6 +152,7 @@
     "dataSource": "poll",
     "tier": 2,
     "messagebox": true,
+    "stopBeforeUpdate": true,
     "dependencies": [
       {
         "js-controller": ">=6.0.11"
