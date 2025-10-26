@@ -329,6 +329,7 @@ export class euSec extends utils.Adapter {
                             "listen": `:${this.config.go2rtc_webrtc_port}`
                         },
                         "ffmpeg": {
+                            // @ts-expect-error old code
                             "bin": pathToFfmpeg !== "" && pathToFfmpeg !== undefined ? pathToFfmpeg : "ffmpeg",
                         },
                         "streams": {},

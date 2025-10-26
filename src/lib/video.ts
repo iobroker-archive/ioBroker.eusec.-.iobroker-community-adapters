@@ -75,6 +75,7 @@ export const ffmpegPreviewImage = (config: ioBroker.AdapterConfig, input:string,
     return new Promise((resolve, reject) => {
         try {
             if (pathToFfmpeg) {
+                // @ts-expect-error old code
                 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
                 ffmpeg()
@@ -114,6 +115,7 @@ export const ffmpegStreamToHls = (config: ioBroker.AdapterConfig, namespace: str
     return new Promise((resolve, reject) => {
         try {
             if (pathToFfmpeg) {
+                // @ts-expect-error old code
                 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
                 videoStream.on("error", (error) => {
@@ -204,6 +206,7 @@ export const ffmpegStreamToGo2rtc = (config: ioBroker.AdapterConfig, namespace: 
     return new Promise((resolve, reject) => {
         try {
             if (pathToFfmpeg) {
+                // @ts-expect-error old code
                 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
                 videoStream.on("error", (error) => {
