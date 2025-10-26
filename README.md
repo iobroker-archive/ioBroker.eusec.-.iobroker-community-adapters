@@ -15,11 +15,6 @@
 
 This is an [ioBroker](https://www.iobroker.net) adapter that uses the [eufy-security-client](https://github.com/bropat/eufy-security-client) library to comunicate with Eufy devices.
 
-If you appreciate my work and progress and want to support me, you can do it here:
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/pbroetto)
-
 **This project is not affiliated with Anker and Eufy (Eufy Security). It is a personal project that is maintained in spare time.**
 
 ## Description
