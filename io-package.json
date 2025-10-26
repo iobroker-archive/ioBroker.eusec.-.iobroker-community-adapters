@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "eusec",
-    "version": "2.0.1-alpha.0",
+    "version": "2.0.1",
     "news": {
-      "2.0.1-alpha.0": {
+      "2.0.1": {
         "en": "Remove fix for CVE-2023-46809 for node.js 22 and newer",
         "de": "Entfernen Sie Fix für CVE-2023-46809 für node.js 22 und neuer",
         "ru": "Удалить исправление для CVE-2023-46809 для node.js 22 и новее",
