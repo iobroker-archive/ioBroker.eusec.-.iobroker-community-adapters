@@ -45,10 +45,10 @@ You are working on an ioBroker adapter. ioBroker is an integration platform for 
 ## Testing
 
 ### Unit Testing
-- Use Jest as the primary testing framework for ioBroker adapters
+- Use Mocha as the testing framework for ioBroker adapters (configured in test/mocharc.custom.json)
 - Create tests for all adapter main functions and helper methods
 - Test error handling scenarios and edge cases
-- Mock external API calls and hardware dependencies
+- Mock external API calls and hardware dependencies (especially eufy-security-client interactions)
 - For adapters connecting to APIs/devices not reachable by internet, provide example data files to allow testing of functionality without live connections
 - Example test structure:
   ```javascript
@@ -59,7 +59,7 @@ You are working on an ioBroker adapter. ioBroker is an integration platform for 
       // Setup test adapter instance
     });
     
-    test('should initialize correctly', () => {
+    it('should initialize correctly', () => {
       // Test adapter initialization
     });
   });
